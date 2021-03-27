@@ -1,5 +1,2 @@
-a = "안녕"
-
-if a:
-    print(a)
+print(1+2)
 
