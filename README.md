@@ -164,7 +164,7 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 
 
 
-## 결과 
+### 결과 
 
     train accuracy: 0.8284593324558224
     
@@ -180,6 +180,12 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
     weighted avg       0.85      0.82      0.83     39316
 
     roc_auc_score:  0.8064582219241158
+
+### Feature Importance
+
+
+
+### Permutation Importance
 
 
 
