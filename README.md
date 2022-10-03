@@ -38,21 +38,34 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 
 
 
-## 평가지표 및 Baseline 설정
+## 평가지표 / Baseline / 가설 설정
 
 
-### 평가지표 
+#### 평가지표 
  - dataset의 target특성은 'Is_Lead'이다.
  - Train Dataset에서 'Is_Lead'가 '1'인(가입 제안을 수락할) 고객의 데이터를 통해, Test Dataset의 고객 데이터에서 'Is_Lead'를 예측한다.
  - 해당 데이터는 imbalanced class를 가지고 있기 때문에 f1 scroe나 roc-auc curve를 평가지표로 사용한다.
 
 
-### Baseline
+#### Baseline
  - 이 프로젝트는 이진 분류 문제로 Target의 최빈class 비율을 기준 모델로 세운다.
- 
+
+#### 가설 설정 
+ - 가설 1 : Age가 30 ~ 60 사이의 고객이 신용카드를 발급받을 가능성이 유의미하게 높을 것이다.
+ - 가설 2 : 'Vintage'가 높은 고객이 카드를 발급받을 가능성이 유의미하게 높을 것이다.
+ - 가설 3 : 'Credit_Product'를 이용하는 고객이 카드를 발급받을 가능성이 유의미하게 높을 것이다.
+ - 가설 4 : 'Avg_Account_Balance'가 적은 고객이 카드를 발급받을 가능성이 유의미하게 높을 것이다.
+ - 가설 5 : 특정 'Occupation'이 Target일 가능성이 유의미하게 높을 것이다.
 
 
-## 가설 설정 및 검증
+## 프로젝트 진행 과정
+
+### Target
+(이미지)
+- Target Class가 불균형하기 때문에 f1 score나 roc_auc score로 모델의 성능 측정
+
+
+### 가설 검증
  이진 분류 모델 구현에 앞서 고객 세분화 및 분류를 위해 5가지 가설을 설정하고 검증을 진행했다.
  
 #### 가설 1 : Age가 30 ~ 60 사이의 고객이 신용카드를 발급받을 가능성이 유의미하게 높을 것이다.
@@ -80,11 +93,75 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 - 가설 5 검증 : Entrepreneur가 목표 고객일 가능성이 높긴하지만, 전체 고객 중 Entrepreneur의 절대수가 부족해 충분한 인과관계를 뽑아 내기엔 경우의 수가 너무 적어 일반화할 수 없었다.
 
 
+### ML Model Test
+
+#### LogisticRegression : f1 score 점수가 나오지 않음.
+
+    train accuracy: 0.7622263342299206
+    validation accuracy: 0.7659477057686438
+    report               precision    recall  f1-score   support
+
+                     0       0.77      1.00      0.87     30114
+                     1       0.00      0.00      0.00      9202
+
+              accuracy                           0.77     39316
+             macro avg       0.38      0.50      0.43     39316
+          weighted avg       0.59      0.77      0.66     39316
+
+    roc_auc_score:  0.5
+
+#### DecisionTreeClassifier : 과적합 발생.
+
+    train accuracy: 1.0
+    validation accuracy: 0.7862193509003967
+    report               precision    recall  f1-score   support
+
+                      0       0.87      0.85      0.86     30114
+                      1       0.54      0.57      0.55      9202
+
+               accuracy                           0.79     39316
+              macro avg       0.70      0.71      0.71     39316
+           weighted avg       0.79      0.79      0.79     39316
+
+    roc_auc_score:  0.7108378403319289
+
+#### RandomForestClassifier : 과적합 발생.
+
+    train accuracy: 0.9999364122520873
+    validation accuracy: 0.8544104181503713
+    report               precision    recall  f1-score   support
+
+                      0       0.88      0.94      0.91     30114
+                      1       0.74      0.58      0.65      9202
+
+               accuracy                           0.85     39316
+              macro avg       0.81      0.76      0.78     39316
+           weighted avg       0.85      0.85      0.85     39316
+
+    roc_auc_score:  0.7581819528449286
+
+#### XGBClassifier : roc_auc_score 성능이 가장 좋은 XGB 하이퍼파라미터 조정 진행.
+
+    train accuracy: 0.8604694047550918
+    validation accuracy: 0.8631091667514498
+    report               precision    recall  f1-score   support
+
+                      0       0.87      0.96      0.92     30114
+                      1       0.82      0.53      0.64      9202
+
+               accuracy                           0.86     39316
+              macro avg       0.85      0.75      0.78     39316
+           weighted avg       0.86      0.86      0.85     39316
+
+    roc_auc_score:  0.7473335657617045
+
+#### XGBClassifier 하이퍼파라미터 조정.
+
+    best_params:  {'simpleimputer__strategy': 'most_frequent', 'xgbclassifier__max_depth': 5, 'xgbclassifier__n_estimators': 213}
 
 ### 최종 사용 모델 : XGBClassifier
  - 높은 병렬 처리로 학습과 처리가 빠른 XGBoost모델을 사용했다.
 
-5. 포르젝트 진행 과정.
 
 
 ## 결과 
@@ -123,3 +200,6 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 - 분석을 개선했지만 해당 데이터에 대해 기술적으로 더 잘 다루거나 좋은 인사이트를 뽑지 못한 점이 아쉽다.
 
 - 개선의 궁극적인 목표는 데이터 분석을 더 구체적으로, 가설 검증을 조금 더 구체적이고 비지니스 측면에서 해보는 것이다. 이후에는 ML모델 성능의 개선을 진행해보고 싶다.
+
+- 데이터 특성 분석 시, p-value나 상관계수를 구해 좀 더 구체적인 분석이 되도록 한다.
+
