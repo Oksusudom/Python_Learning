@@ -1,4 +1,5 @@
-# 신용카드 신규 고객 예측
+신용카드 신규 고객 예측
+=========================
 
 ## 문제 인식 
  - 은행 및 카드사는 고객 맞춤 상품을 기획/서비스하기 위해 고객의 정보나 결제내역 등을 분석하여 고객들을 세분화하고 있다.
@@ -67,19 +68,19 @@ Test Dataset : 105,312 rows
 
 ## 결과 
 
-'''
-train accuracy: 0.8284593324558224
-validation accuracy: 0.8224132668633635
-Report:               precision    recall  f1-score   support
+    train accuracy: 0.8284593324558224
+    
+    validation accuracy: 0.8224132668633635
+
+    Report:               precision    recall  f1-score   support
 
            0       0.92      0.84      0.88     30114
            1       0.59      0.78      0.67      9202
-
+           
     accuracy                           0.82     39316
-   macro avg       0.76      0.81      0.78     39316
-weighted avg       0.85      0.82      0.83     39316
+    macro avg       0.76      0.81      0.78     39316
+    weighted avg       0.85      0.82      0.83     39316
 
-roc_auc_score:  0.8064582219241158
-'''
+    roc_auc_score:  0.8064582219241158
 
 ## 한계점 및 해결 방안.
