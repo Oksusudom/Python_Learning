@@ -1,10 +1,5 @@
 # 신용카드 신규 고객 예측
 
-## 포트폴리오 기본 구성요소
-
-1. 프로젝트에서 풀고자 하는 문제 (문제 인식, 문제 정의, 가설)
-
-
 문제 인식 
  - 은행 및 카드사는 고객 맞춤 상품을 기획/서비스하기 위해 고객의 정보나 결제내역 등을 분석하여 고객들을 세분화하고 있다.
  - 프로젝트에 쓰인 데이터는 고객 정보(객들의 나이, 직업, 지역, 가입기간, 평균 계좌 잔액, 대출 및 신용 상품 이용 등 인구통계학적, 행동적 특성)들로 구성되어 있다. 분석을 통해 고객을 분류하면 특정 고객에 맞는 서비스를 제공하여 비용 절감, 충성 고객 증가, 상품 기획 방향 제시 등의 장점이 있을 것으로 기대된다.
@@ -12,6 +7,20 @@
 
 문제 정의
  - 가상의 카드사 회원 데이터셋을 사용해, 카드사 기존 고객 중 recommended credit card 가입 제안을 수락할 고객을 예측하는 이진 분류 모델.
+
+데이터셋 설명
+
+*   ID : Unique Identifier for a row
+*   Gender : Gender of the Customer
+*   Age : Age of the Customer (in Years)
+*   Region_Code : Code of the Region for the customers
+*   Occupation : Occupation Type for the customer
+*   Channel_Code : Acquisition Channel Code for the Customer (Encoded)
+*   Vintage : Vintage for the Customer (In Months)
+*   Credit_Product : If the Customer has any active credit product (Home loan, Personal loan, Credit Card etc.)
+*   Avg_Account_Balance : Average Account Balance for the Customer in last 12 Months
+*   Is_Active : If the Customer is Active in last 3 Months
+*   Is_Lead : If the Customer is interested for the Credit Card [0 : Customer is not interested], [1 : Customer is interested]
 
 가설
  이진 분류 모델 구현에 앞서 고객 세분화 및 분류를 위해 5가지 가설을 설정하고 검증을 진행했다.
@@ -66,18 +75,6 @@ weighted avg       0.84      0.82      0.83     49145
 
 roc_auc_score:  0.8031940458543826
 
-8. 데이터셋 설명.
 
-*   ID : Unique Identifier for a row
-*   Gender : Gender of the Customer
-*   Age : Age of the Customer (in Years)
-*   Region_Code : Code of the Region for the customers
-*   Occupation : Occupation Type for the customer
-*   Channel_Code : Acquisition Channel Code for the Customer (Encoded)
-*   Vintage : Vintage for the Customer (In Months)
-*   Credit_Product : If the Customer has any active credit product (Home loan, Personal loan, Credit Card etc.)
-*   Avg_Account_Balance : Average Account Balance for the Customer in last 12 Months
-*   Is_Active : If the Customer is Active in last 3 Months
-*   Is_Lead : If the Customer is interested for the Credit Card [0 : Customer is not interested], [1 : Customer is interested]
-*   
+ 
 9. 한계점 및 해결 방안.
