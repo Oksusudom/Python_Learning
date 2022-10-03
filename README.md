@@ -61,7 +61,7 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 ## 프로젝트 진행 과정
 
 ### Target
-(이미지)
+<img src="https://user-images.githubusercontent.com/81462099/193682454-9b9a57da-2297-468e-b6f4-60e6b64ce0fe.png"  width ="545" height="370">
 - Target Class가 불균형하기 때문에 f1 score나 roc_auc score로 모델의 성능 측정
 
 
