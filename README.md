@@ -182,11 +182,12 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
     roc_auc_score:  0.8064582219241158
 
 ### Feature Importance
+<img src="https://user-images.githubusercontent.com/81462099/193683798-41233ca4-1247-4792-9724-8a4371e02f45.png"  width ="450" height="320">
 
 
 
 ### Permutation Importance
-
+<img src="https://user-images.githubusercontent.com/81462099/193683805-b48f4732-be53-45e1-a991-fd90ff2b48dd.png" width ="450" height="320">
 
 
 ## 한계점 및 해결 방안.
