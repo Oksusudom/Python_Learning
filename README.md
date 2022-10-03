@@ -67,16 +67,17 @@ Test Dataset : 105,312 rows
 
 ## 결과 
 
-test accuracy: 0.8215281310407977
-Report:           precision  recall   f1-score  support
+train accuracy: 0.8284593324558224
+validation accuracy: 0.8224132668633635
+Report:               precision    recall  f1-score   support
 
-           0       0.92      0.84      0.88     37453
-           1       0.60      0.77      0.67     11692
+           0       0.92      0.84      0.88     30114
+           1       0.59      0.78      0.67      9202
 
-    accuracy                           0.82     49145
-   macro avg       0.76      0.80      0.77     49145
-weighted avg       0.84      0.82      0.83     49145
+    accuracy                           0.82     39316
+   macro avg       0.76      0.81      0.78     39316
+weighted avg       0.85      0.82      0.83     39316
 
-roc_auc_score:  0.8031940458543826
+roc_auc_score:  0.8064582219241158
 
 ## 한계점 및 해결 방안.
