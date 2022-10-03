@@ -31,13 +31,14 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 *   Is_Active : If the Customer is Active in last 3 Months
 *   Is_Lead : If the Customer is interested for the Credit Card [0 : Customer is not interested], [1 : Customer is interested]
 
+## 평가지표 및 Baseline 설정
 
 ### 평가지표 
  - dataset의 target특성은 'Is_Lead'이다.
  - Train Dataset에서 'Is_Lead'가 '1'인(가입 제안을 수락할) 고객의 데이터를 통해, Test Dataset의 고객 데이터에서 'Is_Lead'를 예측한다.
  - 해당 데이터는 imbalanced class를 가지고 있기 때문에 f1 scroe나 roc-auc curve를 평가지표로 사용한다.
 
-### Baseline 설정
+### Baseline
  - 이 프로젝트는 이진 분류 문제로 Target의 최빈class 비율을 기준 모델로 세운다.
  
 
