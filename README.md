@@ -1,6 +1,8 @@
 신용카드 신규 고객 예측
 =========================
 
+
+
 ## 프로젝트 배경 
  - 은행 및 카드사는 고객 맞춤 상품을 기획/서비스하기 위해 고객의 정보나 결제내역 등을 분석하여 고객들을 세분화하고 있다.
  
@@ -9,8 +11,10 @@
  - 가상의 카드사 회원 정보를 통해 이진 분류 예측 프로젝트를 작업해보았다.
 
 
+
 ## 문제 정의
  - 가상의 카드사 회원 데이터셋을 사용해, 카드사 기존 고객 중 recommended credit card 가입 제안을 수락할 고객을 예측하는 이진 분류 모델.
+
 
 
 ## 데이터셋 설명
@@ -19,28 +23,34 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 - Train Dataset : 245,725 rows
 - Test Dataset : 105,312 rows
 
-*   ID : Unique Identifier for a row
-*   Gender : Gender of the Customer
-*   Age : Age of the Customer (in Years)
-*   Region_Code : Code of the Region for the customers
-*   Occupation : Occupation Type for the customer
-*   Channel_Code : Acquisition Channel Code for the Customer (Encoded)
-*   Vintage : Vintage for the Customer (In Months)
-*   Credit_Product : If the Customer has any active credit product (Home loan, Personal loan, Credit Card etc.)
-*   Avg_Account_Balance : Average Account Balance for the Customer in last 12 Months
-*   Is_Active : If the Customer is Active in last 3 Months
-*   Is_Lead : If the Customer is interested for the Credit Card [0 : Customer is not interested], [1 : Customer is interested]
+***
+    - ID : Unique Identifier for a row
+    - Gender : Gender of the Customer
+    - Age : Age of the Customer (in Years)
+    - Region_Code : Code of the Region for the customers
+    - Occupation : Occupation Type for the customer
+    - Channel_Code : Acquisition Channel Code for the Customer (Encoded)
+    - Vintage : Vintage for the Customer (In Months)
+    - Credit_Product : If the Customer has any active credit product (Home loan, Personal loan, Credit Card etc.)
+    - Avg_Account_Balance : Average Account Balance for the Customer in last 12 Months
+    - Is_Active : If the Customer is Active in last 3 Months
+    - Is_Lead : If the Customer is interested for the Credit Card [0 : Customer is not interested], [1 : Customer is interested]
+
+
 
 ## 평가지표 및 Baseline 설정
+
 
 ### 평가지표 
  - dataset의 target특성은 'Is_Lead'이다.
  - Train Dataset에서 'Is_Lead'가 '1'인(가입 제안을 수락할) 고객의 데이터를 통해, Test Dataset의 고객 데이터에서 'Is_Lead'를 예측한다.
  - 해당 데이터는 imbalanced class를 가지고 있기 때문에 f1 scroe나 roc-auc curve를 평가지표로 사용한다.
 
+
 ### Baseline
  - 이 프로젝트는 이진 분류 문제로 Target의 최빈class 비율을 기준 모델로 세운다.
  
+
 
 ## 가설 설정 및 검증
  이진 분류 모델 구현에 앞서 고객 세분화 및 분류를 위해 5가지 가설을 설정하고 검증을 진행했다.
@@ -68,10 +78,12 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 - 가설 5 검증 : Entrepreneur가 목표 고객일 가능성이 높긴하지만, 전체 고객 중 Entrepreneur의 절대수가 부족해 충분한 인과관계를 뽑아 내기엔 경우의 수가 너무 적어 일반화할 수 없었다.
 
 
+
 ### 최종 사용 모델 : XGBClassifier
  - 높은 병렬 처리로 학습과 처리가 빠른 XGBoost모델을 사용했다.
 
 5. 포르젝트 진행 과정.
+
 
 ## 결과 
 
@@ -89,6 +101,8 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
     weighted avg       0.85      0.82      0.83     39316
 
     roc_auc_score:  0.8064582219241158
+
+
 
 ## 한계점 및 해결 방안.
 
