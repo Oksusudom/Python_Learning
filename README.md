@@ -3,7 +3,9 @@
 
 ## 문제 인식 
  - 은행 및 카드사는 고객 맞춤 상품을 기획/서비스하기 위해 고객의 정보나 결제내역 등을 분석하여 고객들을 세분화하고 있다.
+ 
  - 프로젝트에 쓰인 데이터는 고객 정보(객들의 나이, 직업, 지역, 가입기간, 평균 계좌 잔액, 대출 및 신용 상품 이용 등 인구통계학적, 행동적 특성)들로 구성되어 있다. 분석을 통해 고객을 분류하면 특정 고객에 맞는 서비스를 제공하여 비용 절감, 충성 고객 증가, 상품 기획 방향 제시 등의 장점이 있을 것으로 기대된다.
+ 
  - 가상의 카드사 회원 정보를 통해 이진 분류 예측 프로젝트를 작업해보았다.
 
 ## 문제 정의
@@ -12,8 +14,8 @@
 ## 데이터셋 설명
 Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhussain3/jobathon-may-2021-credit-card-lead-prediction) 데이터셋.
 
-Train Dataset : 245,725 rows
-Test Dataset : 105,312 rows
+- Train Dataset : 245,725 rows
+- Test Dataset : 105,312 rows
 
 *   ID : Unique Identifier for a row
 *   Gender : Gender of the Customer
