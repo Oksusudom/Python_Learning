@@ -10,6 +10,8 @@
 
 데이터셋 설명
 
+[Credit Card Lead Prediction] (https://www.kaggle.com/datasets/sajidhussain3/jobathon-may-2021-credit-card-lead-prediction)
+
 *   ID : Unique Identifier for a row
 *   Gender : Gender of the Customer
 *   Age : Age of the Customer (in Years)
