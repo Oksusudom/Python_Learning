@@ -6,8 +6,9 @@
 
 
 문제 인식 
- - 은행 및 카드사 어플리케이션을 사용하다보면 고객의 정보 분석에 맞춘 상품 추천을 많이 볼 수 있다.
- - 고객의 정보를 통한 다양한 상품 예측에 관심이 있어, 가상의 카드사 회원 정보를 통해 이진 분류 모델을 구현해봤다.
+ - 은행 및 카드사는 고객 맞춤 상품을 기획/서비스하기 위해 고객의 정보나 결제내역 등을 분석하여 고객들을 세분화하고 있다.
+ - 프로젝트에 쓰인 데이터는 고객 정보(객들의 나이, 직업, 지역, 가입기간, 평균 계좌 잔액, 대출 및 신용 상품 이용 등 인구통계학적, 행동적 특성)들로 구성되어 있다. 분석을 통해 고객을 분류하면 특정 고객에 맞는 서비스를 제공하여 비용 절감, 충성 고객 증가, 상품 기획 방향 제시 등의 장점이 있을 것으로 기대된다.
+ - 가상의 카드사 회원 정보를 통해 이진 분류 예측 프로젝트를 작업해보았다.
 
 문제 정의
  - 가상의 카드사 회원 데이터셋을 사용해, 카드사 기존 고객 중 recommended credit card 가입 제안을 수락할 고객을 예측하는 이진 분류 모델.
@@ -43,11 +44,40 @@
  - dataset의 target특성은 'Is_Lead'이다.
  - Train Dataset에서 'Is_Lead'가 '1'인(가입 제안을 수락할) 고객의 데이터를 통해, Test Dataset의 고객 데이터에서 'Is_Lead'를 예측한다.
  - 해당 데이터는 imbalanced class를 가지고 있기 때문에 f1 scroe나 roc-auc curve를 평가지표로 사용한다.
+
+Baseline 설정
+ - 이 프로젝트는 이진 분류 문제로 Target의 최빈class 비율을 기준 모델로 세운다.
  
-모델
- - 
+최종 사용 모델 : XGBClassifier
+ - 높은 병렬 처리로 학습과 처리가 빠른 XGBoost모델을 사용했다.
 
 5. 포르젝트 진행 과정.
 6. 결과 정리.
-7. 데이터셋 설명.
-8. 한계점 및 해결 방안.
+
+test accuracy: 0.8215281310407977
+Report:           precision  recall   f1-score  support
+
+           0       0.92      0.84      0.88     37453
+           1       0.60      0.77      0.67     11692
+
+    accuracy                           0.82     49145
+   macro avg       0.76      0.80      0.77     49145
+weighted avg       0.84      0.82      0.83     49145
+
+roc_auc_score:  0.8031940458543826
+
+8. 데이터셋 설명.
+
+*   ID : Unique Identifier for a row
+*   Gender : Gender of the Customer
+*   Age : Age of the Customer (in Years)
+*   Region_Code : Code of the Region for the customers
+*   Occupation : Occupation Type for the customer
+*   Channel_Code : Acquisition Channel Code for the Customer (Encoded)
+*   Vintage : Vintage for the Customer (In Months)
+*   Credit_Product : If the Customer has any active credit product (Home loan, Personal loan, Credit Card etc.)
+*   Avg_Account_Balance : Average Account Balance for the Customer in last 12 Months
+*   Is_Active : If the Customer is Active in last 3 Months
+*   Is_Lead : If the Customer is interested for the Credit Card [0 : Customer is not interested], [1 : Customer is interested]
+*   
+9. 한계점 및 해결 방안.
