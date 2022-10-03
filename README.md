@@ -67,6 +67,7 @@ Test Dataset : 105,312 rows
 
 ## 결과 
 
+''''
 train accuracy: 0.8284593324558224
 validation accuracy: 0.8224132668633635
 Report:               precision    recall  f1-score   support
@@ -79,5 +80,6 @@ Report:               precision    recall  f1-score   support
 weighted avg       0.85      0.82      0.83     39316
 
 roc_auc_score:  0.8064582219241158
+''''
 
 ## 한계점 및 해결 방안.
