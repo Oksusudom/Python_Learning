@@ -70,11 +70,11 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
  - 가설 3 검증 : 'Creadit_Product'가 Yes/No/NaN(결측치)이고 'Is_Lead'가 1/0인 모든 경우를 직접 비교하여 'Credit_Product'가 NaN인 고객이 목표 고객일 가능성이 높게 나왔다. 하지만 결측치이기 때문에 검증에 확신을 가질 순 없었다.
 
  - 가설 4 : 'Avg_Account_Balance'가 적은 고객이 카드를 발급받을 가능성이 유의미하게 높을 것이다.
-![가설4](https://user-images.githubusercontent.com/81462099/193642244-60aee87e-aba9-4a30-a9eb-3b1558664768.png)
+<img src="https://user-images.githubusercontent.com/81462099/193642244-60aee87e-aba9-4a30-a9eb-3b1558664768.png" width ="545" height="370">
  - 가설 4 검증 : 'Is_Lead'별로 'Avg_Account_Balance'를 확인할 수 있게 plot을 개선하여 확인해본 결과, 'Is_Lead'와 'Avg_Account_Balance'는 유의미한 상관이 없는 것으로 확인했다.
 
 - 가설 5 : 특정 'Occupation'이 Target일 가능성이 유의미하게 높을 것이다.
-![가설5](https://user-images.githubusercontent.com/81462099/193642258-3780cc75-f4af-43f9-8bd8-8052bfdf5562.png)
+<img src="https://user-images.githubusercontent.com/81462099/193642258-3780cc75-f4af-43f9-8bd8-8052bfdf5562.png" width ="545" height="370">
 - 가설 5 검증 : Entrepreneur가 목표 고객일 가능성이 높긴하지만, 전체 고객 중 Entrepreneur의 절대수가 부족해 충분한 인과관계를 뽑아 내기엔 경우의 수가 너무 적어 일반화할 수 없었다.
 
 
