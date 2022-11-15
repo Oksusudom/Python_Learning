@@ -68,27 +68,42 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 ### 가설 검증
  이진 분류 모델 구현에 앞서 고객 세분화 및 분류를 위해 5가지 가설을 설정하고 검증을 진행했다.
  
-#### 가설 1 : Age가 30 ~ 60 사이의 고객이 신용카드를 발급받을 가능성이 유의미하게 높을 것이다.
+#### 가설 1 : Two Sample T-Test
+
+- 귀무가설 : 'Age'에 상관없이 카드를 발급받을 가능성이 차이가 나지 않을 것이다.
+- 대안가설 : Age가 30 ~ 60 사이의 고객이 신용카드를 발급받을 가능성이 유의미하게 높을 것이다.
 ![가설1](https://user-images.githubusercontent.com/81462099/193642080-5950a605-2e05-45ce-8536-f81d4ceff047.png)
 - 가설 1 검증 : 'Age'별 'Is_Lead'가 1인 고객을 비율로 나타내, 'Age'가 40 중반에서 60 중반, 그 다음으로 75 이상인 고객이 신규 카드를 발급받을 가능성이 높다.
  
 
-#### 가설 2 : 'Vintage'가 높은 고객이 카드를 발급받을 가능성이 유의미하게 높을 것이다.
+#### 가설 2 : Two Sample T-Test
+
+- 귀무가설 : 'Vintage'값에 상관없이 카드를 발급받을 가능성이 차이가 나지 않을 것이다.
+- 대안가설 : 고객의 'Vintage'값에 카드를 발급받을 가능성이 비례할 것이다.
 ![가설2](https://user-images.githubusercontent.com/81462099/193642095-2b003e32-3563-4ead-a22f-91238f2865a3.png)
 - 가설 2 검증 : 'Vintage'별 'Is_Lead'가 1인 비율로 나타내, 'Vintage'가 80~90인 고객이 카드를 발급받을 가능성이 높다.
 
 
-#### 가설 3 : 'Credit_Product'를 이용하는 고객이 카드를 발급받을 가능성이 유의미하게 높을 것이다.
+#### 가설 3 : Two Sample T-Test ('Credit_Product' 결측치를 삭제하고 진행.)
+
+- 귀무가설 : 'Credit_Product'를 이용하는 고객과 이용하지 않는 고객이 카드를 발급받을 가능성은 차이가 없다.
+- 대안가설 : 'Credit_Product'를 이용하는 고객이 카드를 발급받을 가능성이 유의미하게 차이가 난다.
 <img width="545" alt="가설3" src="https://user-images.githubusercontent.com/81462099/193642233-cbec145a-c245-4008-b6b3-33d0270c142e.png">
 - 가설 3 검증 : 'Creadit_Product'가 Yes/No/NaN(결측치)이고 'Is_Lead'가 1/0인 모든 경우를 직접 비교하여 'Credit_Product'가 NaN인 고객이 목표 고객일 가능성이 높게 나왔다. 하지만 결측치이기 때문에 검증에 확신을 가질 순 없었다.
 
 
-#### 가설 4 : 'Avg_Account_Balance'가 적은 고객이 카드를 발급받을 가능성이 유의미하게 높을 것이다.
+#### 가설 4 : Two Sample T-Test
+
+- 귀무가설 : 'Avg_Account_Balance'가 적은 고객과 높은 고객의 카드 발급 가능성은 차이가 없다.
+- 대안가설 : 'Avg_Account_Balance'가 적은 고객이 카드를 발급받을 가능성에서 유의미하게 차이가 난다.
 <img src="https://user-images.githubusercontent.com/81462099/193642244-60aee87e-aba9-4a30-a9eb-3b1558664768.png" width ="545" height="370">
 - 가설 4 검증 : 'Is_Lead'별로 'Avg_Account_Balance'를 확인할 수 있게 plot을 개선하여 확인해본 결과, 'Is_Lead'와 'Avg_Account_Balance'는 유의미한 상관이 없는 것으로 확인했다.
 
 
-#### 가설 5 : 특정 'Occupation'이 Target일 가능성이 유의미하게 높을 것이다.
+#### 가설 5 : Two Sample Chi Squre Test
+
+- 귀무가설 : 'Occupation'에 관계없이 카드를 발급받을 가능성에 유의미한 차이가 없을 것이다.
+- 대안가설 : 특정 'Occupation'이 카드를 발급받을 가능성이 유의미하게 높을 것이다.
 <img src="https://user-images.githubusercontent.com/81462099/193643623-e2a5482a-bfc5-43ed-af6b-1e9da4ac140f.png"  width ="545" height="370">
 - 가설 5 검증 : Entrepreneur가 목표 고객일 가능성이 높긴하지만, 전체 고객 중 Entrepreneur의 절대수가 부족해 충분한 인과관계를 뽑아 내기엔 경우의 수가 너무 적어 일반화할 수 없었다.
 
