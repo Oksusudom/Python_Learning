@@ -41,11 +41,11 @@ Kaggle의 [Credit Card Lead Prediction](https://www.kaggle.com/datasets/sajidhus
 
 A. Data Preprocessing
 
-'''
+
 - EDA : Numerical features와 Categorical features 분포확인 및 시각화, 가설 검정
 - Data Cleaning : 이상치 제거, 불필요한 column 삭제, 결측치 처리(Credit_Product의 결측치 -> 최빈값으로 처리)
 - Data Reduction : Region_Code의 cardinality가 35로 높아 해당 특성 삭제 후 모델링 진행
-'''
+
 
 B. Model 
 
