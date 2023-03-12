@@ -97,16 +97,17 @@ B. Model
 - XGBClassifier
 
 
+     
       report        precision    recall  f1-score   support
 
-                 0       0.82      0.89      0.85     35359
-                 1       0.49      0.34      0.40     10864
+                 0       0.81      0.95      0.88     35359
+                 1       0.64      0.28      0.39     10864
 
-      accuracy                               0.76     46223
-      macro avg          0.65      0.62      0.63     46223
-      weighted avg       0.74      0.76      0.75     46223
+      accuracy                               0.79     46223
+      macro avg          0.73      0.61      0.63     46223
+      weighted avg       0.77      0.79      0.76     46223
 
-      roc_auc_score:  0.6173718483952587
+      roc_auc_score:  0.6143925362287541
       
 
 ## 한계점 및 해결 방안.
